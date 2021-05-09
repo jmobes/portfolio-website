@@ -1,0 +1,92 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: unset;
+  color: unset;
+}
+html {
+  font-size: 62.5%;
+}
+:root {
+  --color-light: #fff;
+  --color-red: #e31b6d;
+
+  --fs-big: 4.5rem;
+  --fs-med: 2rem;
+  --fs-sm: 1.5rem;
+  --ff: "Raleway", sans-serif;
+}
+.header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  color: var(--color-light);
+}
+.header__text {
+  font-size: var(--fs-med);
+  text-align: center;
+  padding: 0.5em;
+  font-family: var(--ff);
+  width: 90%;
+  font-weight: 400;
+}
+.header__text--line {
+  display: block;
+}
+.header__text--color {
+  color: var(--color-red);
+}
+.header__button {
+  margin-top: 1em;
+  font-size: var(--fs-med);
+  border: 2px solid #fff;
+  padding: 0.5em;
+  z-index: 1;
+  position: relative;
+}
+.header__button a {
+  margin-right: 0.25em;
+}
+.header__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: var(--color-red);
+
+  transition: transform 0.3s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.header__button:hover {
+  cursor: pointer;
+}
+.header__button:hover::before {
+  transform: scaleX(1);
+}
+@media (min-width: 400px) {
+  .header__text {
+    width: 100%;
+    font-size: 3rem;
+  }
+}
+@media (min-width: 600px) {
+  .header__text {
+    width: 100%;
+    font-size: 4.5rem;
+  }
+  .header__button a {
+    font-size: 3rem;
+  }
+}
