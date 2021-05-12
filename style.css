@@ -103,9 +103,9 @@ html {
 }
 
 .about {
-  border-top: 5px solid rgba(0, 199, 205);
+  border-top: 5px solid rgb(0, 199, 205);
   font-family: var(--ff);
-  padding: 5rem 1rem 0 1rem;
+  padding: 5rem 1rem;
   display: flex;
   flex-direction: column;
   background: #f5f5f5;
@@ -151,7 +151,7 @@ html {
 }
 .skills__icon {
   font-size: 10rem;
-  color: var(--color-red);
+  color: rgb(0, 199, 205);
 }
 .skills__card p {
   font-size: 2.5rem;
@@ -187,10 +187,12 @@ html {
 }
 .project {
   position: relative;
+  background-color: #fff;
 }
 .project__image {
   height: 300px;
-  opacity: 0;
+  opacity: 1;
+  transition: all 0.5s ease;
 }
 .project__text,
 .project__link {
@@ -198,10 +200,12 @@ html {
   text-align: center;
 }
 .project__text {
-  top: 5rem;
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 0);
   width: 100%;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
 .project__title {
   color: #1b242f;
@@ -214,14 +218,27 @@ html {
 .project__link {
   left: 50%;
   bottom: 5rem;
-  transform: translateX(-50%);
+  transform: translate(-50%, 0);
   color: #1b242f;
   border: 2px solid #e31b6d;
   padding: 1rem;
   font-size: 1.3rem;
   text-transform: uppercase;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
 .project__link:hover {
   background: #e31b6d;
   color: #fff;
+}
+.project:hover .project__text {
+  opacity: 1;
+  transform: translate(-50%, 5rem);
+}
+.project:hover .project__link {
+  opacity: 1;
+  transform: translate(-50%, -5rem);
+}
+.project:hover .project__image {
+  opacity: 0;
 }
