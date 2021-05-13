@@ -258,7 +258,7 @@ html {
 }
 .contact__prompt {
   color: #04c2c9;
-  margin: 5rem 0;
+  margin: 5rem 0 2rem 0;
   text-align: center;
   font-size: 2rem;
   font-weight: 400;
@@ -266,12 +266,48 @@ html {
 .contact__form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
   color: #b0b0b0;
 }
-.contact__form input,
-.contact__form textarea {
-  display: block;
+.contact__name,
+.contact__email,
+.contact__message {
+  outline: none;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #1e242c;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  width: 80%;
+}
+.contact__name,
+.contact__email {
+  height: 3rem;
+}
+.contact__message {
+  min-height: 150px;
+}
+.contact__submit {
+  outline: none;
+  background: unset;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  transition: all 0.6s ease;
+  cursor: pointer;
+}
+.contact__submit:hover {
+  background: #04c2c9;
+  border: 2px solid #04c2c9;
+}
+@media (min-width: 600px) {
+  .contact__name,
+  .contact__email,
+  .contact__message {
+    width: 50%;
+  }
 }
