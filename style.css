@@ -247,3 +247,31 @@ html {
 .project:hover .project__image {
   opacity: 0;
 }
+
+.contact {
+  font-family: var(--ff);
+  padding: 5rem 0;
+  background: #252934;
+}
+.contact__title {
+  color: #fff;
+}
+.contact__prompt {
+  color: #04c2c9;
+  margin: 5rem 0;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  color: #b0b0b0;
+}
+.contact__form input,
+.contact__form textarea {
+  display: block;
+}
