@@ -195,7 +195,7 @@ html {
   transition: all 0.5s ease;
 }
 .project__text,
-.project__link {
+.project__links {
   position: absolute;
   text-align: center;
 }
@@ -215,17 +215,22 @@ html {
   color: #e31b6d;
   font-size: 1.5rem;
 }
-.project__link {
+.project__links {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
   left: 50%;
   bottom: 5rem;
   transform: translate(-50%, 0);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.project__link {
   color: #1b242f;
   border: 2px solid #e31b6d;
   padding: 1rem;
   font-size: 1.3rem;
   text-transform: uppercase;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
 }
 .project__link:hover {
   background: #e31b6d;
@@ -235,7 +240,7 @@ html {
   opacity: 1;
   transform: translate(-50%, 5rem);
 }
-.project:hover .project__link {
+.project:hover .project__links {
   opacity: 1;
   transform: translate(-50%, -5rem);
 }
