@@ -198,6 +198,7 @@ html {
 .project__links {
   position: absolute;
   text-align: center;
+  z-index: -1;
 }
 .project__text {
   top: 0;
@@ -239,10 +240,12 @@ html {
 .project:hover .project__text {
   opacity: 1;
   transform: translate(-50%, 5rem);
+  z-index: 1;
 }
 .project:hover .project__links {
   opacity: 1;
   transform: translate(-50%, -5rem);
+  z-index: 1;
 }
 .project:hover .project__image {
   opacity: 0;

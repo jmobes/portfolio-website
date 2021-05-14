@@ -158,28 +158,34 @@
         <span class="contact__title__border title__border">Contact</span>
       </h2>
       <h3 class="contact__prompt">Have a question?</h3>
-      <form action="" class="contact__form">
+      <form
+        id="form"
+        method="POST"
+        action="send"
+        enctype="multipart/form-data"
+        class="contact__form"
+      >
         <input
           class="contact__name"
           type="text"
-          id="name"
+          name="name"
           required
           placeholder="Name"
         />
         <input
           class="contact__email"
           type="email"
-          id="email"
+          name="email"
           required
           placeholder="Enter email"
         />
         <textarea
           class="contact__message"
           type="text"
-          id="message"
+          name="message"
           placeholder="Your message"
         ></textarea>
-        <input class="contact__submit" type="submit" />
+        <input class="contact__submit" type="submit" value="submit" />
       </form>
     </section>
 
