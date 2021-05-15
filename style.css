@@ -102,6 +102,30 @@ html {
   }
 }
 
+.navigation {
+  background: rgb(26, 35, 48);
+  padding: 1rem;
+  font-family: var(--ff);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.navigation__list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  color: #fff;
+}
+.navigation__item__link {
+  transition: all 0.2s ease-in-out;
+}
+.navigation__item__link:hover {
+  color: var(--color-red);
+}
+
 .about {
   border-top: 5px solid rgb(0, 199, 205);
   font-family: var(--ff);
