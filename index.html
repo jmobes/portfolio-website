@@ -153,6 +153,42 @@
       </div>
     </section>
 
+    <section class="contact">
+      <h2 class="contact__title title">
+        <span class="contact__title__border title__border">Contact</span>
+      </h2>
+      <h3 class="contact__prompt">Have a question?</h3>
+      <form
+        id="form"
+        method="POST"
+        action="send"
+        enctype="multipart/form-data"
+        class="contact__form"
+      >
+        <input
+          class="contact__name"
+          type="text"
+          name="name"
+          required
+          placeholder="Name"
+        />
+        <input
+          class="contact__email"
+          type="email"
+          name="email"
+          required
+          placeholder="Enter email"
+        />
+        <textarea
+          class="contact__message"
+          type="text"
+          name="message"
+          placeholder="Your message"
+        ></textarea>
+        <input class="contact__submit" type="submit" value="submit" />
+      </form>
+    </section>
+
     <script src="main.js"></script>
   </body>
 </html>
