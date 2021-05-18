@@ -1,3 +1,16 @@
+const menu = document.querySelector(".hamburger");
+const navigationList = document.querySelector(".navigation__list");
+const menuEvent = menu.addEventListener("click", (e) => {
+  navigationList.classList.toggle("hidden");
+});
+const navigationItem = document
+  .querySelectorAll(".navigation__item")
+  .forEach((item) => {
+    item.addEventListener("click", (e) => {
+      navigationList.classList.toggle("hidden");
+    });
+  });
+
 const form = document.querySelector("#form");
 let name = document.querySelector(".contact__name");
 
