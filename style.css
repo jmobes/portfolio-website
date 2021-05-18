@@ -109,7 +109,7 @@ html {
   position: sticky;
   top: 0;
   z-index: 5;
-  border-bottom: 5px solid rgb(0, 199, 205);
+  border-bottom: 3px solid rgb(0, 199, 205);
 }
 .navigation__list {
   display: flex;
@@ -133,8 +133,8 @@ i.hamburger {
   cursor: pointer;
 }
 .hidden {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
 }
 @media (max-width: 600px) {
   .navigation {
@@ -147,7 +147,7 @@ i.hamburger {
     width: 100%;
     position: absolute;
     left: 0;
-    top: calc(100% + 5px);
+    top: calc(100% + 3px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -159,6 +159,10 @@ i.hamburger {
   }
   i.hamburger {
     display: block;
+  }
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
