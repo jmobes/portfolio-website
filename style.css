@@ -102,8 +102,71 @@ html {
   }
 }
 
+.navigation {
+  background: rgb(26, 35, 48);
+  padding: 1rem;
+  font-family: var(--ff);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  border-bottom: 3px solid rgb(0, 199, 205);
+}
+.navigation__list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  color: #fff;
+}
+.navigation__item__link {
+  transition: all 0.2s ease-in-out;
+}
+.navigation__item__link:hover {
+  color: var(--color-red);
+}
+i.hamburger {
+  color: #fff;
+  font-size: 2rem;
+  display: none;
+  cursor: pointer;
+}
+.hidden {
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 600px) {
+  .navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2rem;
+  }
+  .navigation__list {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 3px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgb(51, 51, 51);
+    padding: 1rem;
+  }
+  .navigation__item {
+    padding: 1rem;
+  }
+  i.hamburger {
+    display: block;
+  }
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 .about {
-  border-top: 5px solid rgb(0, 199, 205);
   font-family: var(--ff);
   padding: 5rem 1rem;
   display: flex;
@@ -190,7 +253,8 @@ html {
   background-color: #fff;
 }
 .project__image {
-  height: 300px;
+  width: 100%;
+  max-width: 300px;
   opacity: 1;
   transition: all 0.5s ease;
 }
@@ -290,6 +354,8 @@ html {
 }
 .contact__message {
   min-height: 150px;
+  min-width: 50%;
+  max-width: 100%;
 }
 .contact__submit {
   outline: none;
