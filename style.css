@@ -125,6 +125,30 @@ html {
 .navigation__item__link:hover {
   color: var(--color-red);
 }
+i.hamburger {
+  color: #fff;
+  font-size: 2rem;
+  display: none;
+}
+@media (max-width: 600px) {
+  .navigation {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2rem;
+  }
+  .navigation__list {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .hamburger {
+    display: block;
+  }
+}
 
 .about {
   border-top: 5px solid rgb(0, 199, 205);
@@ -314,6 +338,8 @@ html {
 }
 .contact__message {
   min-height: 150px;
+  min-width: 50%;
+  max-width: 100%;
 }
 .contact__submit {
   outline: none;
