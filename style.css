@@ -322,6 +322,7 @@ i.hamburger {
   font-family: var(--ff);
   padding: 5rem 0;
   background: #252934;
+  position: relative;
 }
 .contact__title {
   color: #fff;
@@ -350,6 +351,7 @@ i.hamburger {
   margin-bottom: 0.5rem;
   font-size: 1.6rem;
   width: 80%;
+  font-family: var(--ff);
 }
 .contact__name,
 .contact__email {
@@ -376,10 +378,20 @@ i.hamburger {
   background: #04c2c9;
   border: 2px solid #04c2c9;
 }
+.contact__confirmation {
+  background: #04c986;
+  color: #000;
+  width: 80%;
+  padding: 0.5em 1em;
+  font-size: 1.5rem;
+  text-align: center;
+  display: none;
+}
 @media (min-width: 600px) {
   .contact__name,
   .contact__email,
-  .contact__message {
+  .contact__message,
+  .contact__confirmation {
     width: 50%;
   }
 }
