@@ -19,10 +19,26 @@ app.get("/", (req, res, next) => {
 });
 
 app.post("/email", (req, res, next) => {
-  console.log("REQ BODY: ", req.body);
   const { name, email, message } = req.body;
-  console.log({ name, email, message });
+  if (typeof name !== "string" && typeof email !== "string") {
+    const error = new Error("Invalid name or email");
+    error.code = 400;
+    return next(error);
+  }
+  if (message !== undefined && typeof message !== "string") {
+    const error = new Error("Invalid message");
+    error.code = 400;
+    return next(error);
+  }
   res.send({ name, email, message });
+});
+
+app.use((error, req, res, next) => {
+  if (res.headerSent) {
+    return next(error);
+  }
+  res.status(error.code || 500);
+  res.json({ message: error.message || "An unknown error occurred" });
 });
 
 app.listen(PORT, () => {

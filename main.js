@@ -22,10 +22,9 @@ const formEvent = form.addEventListener("submit", (e) => {
 });
 
 const sendMail = async (mail) => {
-  console.log("MAIL: ", mail);
   const options = {
     method: "post",
-    "Content-Type": "application/json",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(mail),
   };
   try {
