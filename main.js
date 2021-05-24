@@ -12,27 +12,24 @@ const navigationItem = document
   });
 
 const form = document.querySelector("#form");
-let name = document.querySelector(".contact__name");
-
 const formEvent = form.addEventListener("submit", (e) => {
   e.preventDefault();
   let name = document.querySelector(".contact__name").value;
   let email = document.querySelector(".contact__email").value;
   let message = document.querySelector(".contact__message").value;
-  const formData = message ? { name, email, message } : { name, email };
-  console.log("FORM DATA: ", formData);
 
-  sendMail(formData);
+  sendMail({ name, email, message });
 });
 
 const sendMail = async (mail) => {
+  console.log("MAIL: ", mail);
   const options = {
-    method: "POST",
+    method: "post",
     "Content-Type": "application/json",
     body: JSON.stringify(mail),
   };
   try {
-    const res = await fetch("http://localhost:5000", options);
+    const res = await fetch("http://localhost:5000/email", options);
     const contact = await res.json();
     console.log("CONTACT: ", contact);
   } catch (ex) {
