@@ -126,6 +126,9 @@ html {
 .navigation__item__link:hover {
   color: var(--color-red);
 }
+.navigation__item__link:active {
+  color: var(--color-red);
+}
 i.hamburger {
   color: #fff;
   font-size: 2rem;
