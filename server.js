@@ -58,7 +58,7 @@ app.post("/email", (req, res, next) => {
       error.code = 500;
       return next(error);
     } else {
-      res.send("Email sent");
+      res.json({ success: "Message was sent successfully." });
     }
   });
 });

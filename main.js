@@ -22,16 +22,27 @@ const formEvent = form.addEventListener("submit", (e) => {
 });
 
 const sendMail = async (mail) => {
+  const loader = document.querySelector(".loader");
+  const confirmation = document.querySelector(".contact__confirmation");
   const options = {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(mail),
   };
+  let message;
+  loader.style.display = "block";
   try {
     const res = await fetch("http://localhost:5000/email", options);
     const contact = await res.json();
-    console.log("CONTACT: ", contact);
-  } catch (ex) {
-    console.log("email failed");
+    message = "Your message was sent successfully.";
+    document.querySelector(".contact__name").value = "";
+    document.querySelector(".contact__email").value = "";
+    document.querySelector(".contact__message").value = "";
+  } catch (err) {
+    confirmation.style.background = "red";
+    message = "Unable to send email. Please try again.";
   }
+  confirmation.style.display = "block";
+  confirmation.innerText = message;
+  loader.style.display = "none";
 };
