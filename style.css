@@ -401,6 +401,40 @@ i.hamburger {
   }
 }
 
+.footer {
+  background: #1b242f;
+  padding: 5rem;
+}
+.footer__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon__container {
+  padding: 1.5rem;
+  background: #262f38;
+  margin: 0 1rem;
+  transition: all 0.3s;
+}
+.icon__container:hover {
+  background: #04c2c9;
+  cursor: pointer;
+}
+.icon__container i {
+  font-size: 2.5rem;
+  color: #fff;
+}
+.footer__name {
+  margin-top: 4rem;
+  text-align: center;
+  color: #8f9aa7;
+  font-size: 1.5rem;
+  font-family: var(--ff);
+}
+.footer__name span {
+  color: var(--color-red);
+}
+
 .loader {
   display: none;
   color: rgb(0, 199, 205);
