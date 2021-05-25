@@ -28,16 +28,18 @@ const sendMail = async (mail) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(mail),
   };
+  let message;
   try {
     const res = await fetch("http://localhost:5000/email", options);
     const contact = await res.json();
-    confirmation.style.display = "block";
-    confirmation.innerText = "Message was sent successfully.";
-  } catch (ex) {
-    confirmation.style.display = "block";
-    confirmation.innerText = "Unable to send email. Please try again.";
+    message = "Your message was sent successfully.";
+    document.querySelector(".contact__name").value = "";
+    document.querySelector(".contact__email").value = "";
+    document.querySelector(".contact__message").value = "";
+  } catch (err) {
+    confirmation.style.background = "red";
+    message = "Unable to send email. Please try again.";
   }
-  document.querySelector(".contact__name").value = "";
-  document.querySelector(".contact__email").value = "";
-  document.querySelector(".contact__message").value = "";
+  confirmation.style.display = "block";
+  confirmation.innerText = message;
 };
