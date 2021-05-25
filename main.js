@@ -22,6 +22,7 @@ const formEvent = form.addEventListener("submit", (e) => {
 });
 
 const sendMail = async (mail) => {
+  const loader = document.querySelector(".loader");
   const confirmation = document.querySelector(".contact__confirmation");
   const options = {
     method: "post",
@@ -29,6 +30,7 @@ const sendMail = async (mail) => {
     body: JSON.stringify(mail),
   };
   let message;
+  loader.style.display = "block";
   try {
     const res = await fetch("http://localhost:5000/email", options);
     const contact = await res.json();
@@ -42,4 +44,5 @@ const sendMail = async (mail) => {
   }
   confirmation.style.display = "block";
   confirmation.innerText = message;
+  loader.style.display = "none";
 };
