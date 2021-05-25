@@ -34,6 +34,7 @@ const sendMail = async (mail) => {
   try {
     const res = await fetch("http://localhost:5000/email", options);
     const contact = await res.json();
+    confirmation.style.background = "#04c986";
     message = "Your message was sent successfully.";
     document.querySelector(".contact__name").value = "";
     document.querySelector(".contact__email").value = "";
