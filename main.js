@@ -46,4 +46,6 @@ const sendMail = async (mail) => {
   confirmation.style.display = "block";
   confirmation.innerText = message;
   loader.style.display = "none";
+
+  // disable button while request is pending
 };
