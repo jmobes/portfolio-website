@@ -46,6 +46,9 @@ const sendMail = async (mail) => {
   confirmation.style.display = "block";
   confirmation.innerText = message;
   loader.style.display = "none";
-
-  // disable button while request is pending
 };
+
+// disable button while request is pending
+
+let navItems = document.querySelectorAll(".navigation__item");
+console.log("NAVITEMS: ", navItems);
