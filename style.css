@@ -452,6 +452,10 @@ i.hamburger {
   -ms-transform: translateZ(0);
   transform: translateZ(0) translateY(-50%);
 }
+.active {
+  color: var(--color-red);
+}
+
 @-webkit-keyframes load4 {
   0%,
   100% {

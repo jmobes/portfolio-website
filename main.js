@@ -47,8 +47,22 @@ const sendMail = async (mail) => {
   confirmation.innerText = message;
   loader.style.display = "none";
 };
-
-// disable button while request is pending
-
-let navItems = document.querySelectorAll(".navigation__item");
-console.log("NAVITEMS: ", navItems);
+const options = {
+  threshold: 0.5,
+};
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    console.log(entry.target, entry.isIntersecting, entry.intersectionRatio);
+    const id = `#${entry.target.id}`;
+    const navLink = document.querySelector(`a[href="${id}"]`);
+    if (entry.isIntersecting) {
+      navLink.classList.add("active");
+    } else {
+      navLink.classList.remove("active");
+    }
+  });
+}, options);
+let sections = document.querySelectorAll("section");
+sections.forEach((section) => {
+  observer.observe(section);
+});
