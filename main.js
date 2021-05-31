@@ -53,6 +53,50 @@ const sendMail = async (mail) => {
   loader.style.display = "none";
   emailSending = false;
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+  let scrollStart = 0;
+  let home = document.querySelector(".navigation__item--home");
+  let about = document.querySelector(".navigation__item--about");
+  let skills = document.querySelector(".navigation__item--skills");
+  let projects = document.querySelector(".navigation__item--projects");
+  let contact = document.querySelector(".navigation__item--contact");
+
+  let homeOffset = document.querySelector("#home").getBoundingClientRect();
+  let aboutOffset = document.querySelector("#about").getBoundingClientRect();
+  let skillsOffset = document.querySelector("#skills").getBoundingClientRect();
+  let projectsOffset = document
+    .querySelector("#projects")
+    .getBoundingClientRect();
+  let contactOffset = document
+    .querySelector("#contact")
+    .getBoundingClientRect();
+
+  document.onscroll = function (e) {
+    console.log(e.target);
+    scrollStart = e.target.scrollingElement.scrollTop;
+    if (scrollStart < aboutOffset.top) {
+      home.style.color = "red";
+    } else if (
+      scrollStart >= aboutOffset.top &&
+      scrollStart < skillsOffset.top
+    ) {
+      about.style.color = "red";
+    } else if (
+      scrollStart >= skillsOffset.top &&
+      scrollStart < projectsOffset.top
+    ) {
+      skills.style.color = "red";
+    } else if (
+      scrollStart >= projectsOffset.top &&
+      scrollStart < contactOffset.top
+    ) {
+      projects.style.color = "red";
+    } else {
+      contact.style.color = "red";
+    }
+  };
+});
 // const options = {
 //   threshold: 0.5,
 // };
