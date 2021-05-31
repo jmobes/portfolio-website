@@ -73,8 +73,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .getBoundingClientRect();
 
   document.onscroll = function (e) {
-    console.log(e.target);
     scrollStart = e.target.scrollingElement.scrollTop;
+    home.style.color = "#fff";
+    about.style.color = "#fff";
+    skills.style.color = "#fff";
+    projects.style.color = "#fff";
+    contact.style.color = "#fff";
+
     if (scrollStart < aboutOffset.top) {
       home.style.color = "red";
     } else if (
@@ -97,22 +102,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 });
-// const options = {
-//   threshold: 0.5,
-// };
-// const observer = new IntersectionObserver((entries, observer) => {
-//   entries.forEach((entry) => {
-//     console.log(entry.target, entry.isIntersecting, entry.intersectionRatio);
-//     const id = `#${entry.target.id}`;
-//     const navLink = document.querySelector(`a[href="${id}"]`);
-//     if (entry.isIntersecting) {
-//       navLink.classList.add("active");
-//     } else {
-//       navLink.classList.remove("active");
-//     }
-//   });
-// }, options);
-// let sections = document.querySelectorAll("section");
-// sections.forEach((section) => {
-//   observer.observe(section);
-// });
