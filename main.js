@@ -21,7 +21,12 @@ const formEvent = form.addEventListener("submit", (e) => {
   sendMail({ name, email, message });
 });
 
+let emailSending = false;
 const sendMail = async (mail) => {
+  if (emailSending) {
+    return;
+  }
+  emailSending = true;
   const loader = document.querySelector(".loader");
   const confirmation = document.querySelector(".contact__confirmation");
   const options = {
@@ -46,23 +51,24 @@ const sendMail = async (mail) => {
   confirmation.style.display = "block";
   confirmation.innerText = message;
   loader.style.display = "none";
+  emailSending = false;
 };
-const options = {
-  threshold: 0.5,
-};
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    console.log(entry.target, entry.isIntersecting, entry.intersectionRatio);
-    const id = `#${entry.target.id}`;
-    const navLink = document.querySelector(`a[href="${id}"]`);
-    if (entry.isIntersecting) {
-      navLink.classList.add("active");
-    } else {
-      navLink.classList.remove("active");
-    }
-  });
-}, options);
-let sections = document.querySelectorAll("section");
-sections.forEach((section) => {
-  observer.observe(section);
-});
+// const options = {
+//   threshold: 0.5,
+// };
+// const observer = new IntersectionObserver((entries, observer) => {
+//   entries.forEach((entry) => {
+//     console.log(entry.target, entry.isIntersecting, entry.intersectionRatio);
+//     const id = `#${entry.target.id}`;
+//     const navLink = document.querySelector(`a[href="${id}"]`);
+//     if (entry.isIntersecting) {
+//       navLink.classList.add("active");
+//     } else {
+//       navLink.classList.remove("active");
+//     }
+//   });
+// }, options);
+// let sections = document.querySelectorAll("section");
+// sections.forEach((section) => {
+//   observer.observe(section);
+// });
