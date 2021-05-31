@@ -21,7 +21,12 @@ const formEvent = form.addEventListener("submit", (e) => {
   sendMail({ name, email, message });
 });
 
+let emailSending = false;
 const sendMail = async (mail) => {
+  if (emailSending) {
+    return;
+  }
+  emailSending = true;
   const loader = document.querySelector(".loader");
   const confirmation = document.querySelector(".contact__confirmation");
   const options = {
@@ -46,4 +51,54 @@ const sendMail = async (mail) => {
   confirmation.style.display = "block";
   confirmation.innerText = message;
   loader.style.display = "none";
+  emailSending = false;
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+  let scrollStart = 0;
+  let home = document.querySelector(".navigation__item--home");
+  let about = document.querySelector(".navigation__item--about");
+  let skills = document.querySelector(".navigation__item--skills");
+  let projects = document.querySelector(".navigation__item--projects");
+  let contact = document.querySelector(".navigation__item--contact");
+
+  let homeOffset = document.querySelector("#home").getBoundingClientRect();
+  let aboutOffset = document.querySelector("#about").getBoundingClientRect();
+  let skillsOffset = document.querySelector("#skills").getBoundingClientRect();
+  let projectsOffset = document
+    .querySelector("#projects")
+    .getBoundingClientRect();
+  let contactOffset = document
+    .querySelector("#contact")
+    .getBoundingClientRect();
+
+  document.onscroll = function (e) {
+    scrollStart = e.target.scrollingElement.scrollTop;
+    home.style.color = "#fff";
+    about.style.color = "#fff";
+    skills.style.color = "#fff";
+    projects.style.color = "#fff";
+    contact.style.color = "#fff";
+
+    if (scrollStart < aboutOffset.top) {
+      home.style.color = "red";
+    } else if (
+      scrollStart >= aboutOffset.top &&
+      scrollStart < skillsOffset.top
+    ) {
+      about.style.color = "red";
+    } else if (
+      scrollStart >= skillsOffset.top &&
+      scrollStart < projectsOffset.top
+    ) {
+      skills.style.color = "red";
+    } else if (
+      scrollStart >= projectsOffset.top &&
+      scrollStart < contactOffset.top
+    ) {
+      projects.style.color = "red";
+    } else {
+      contact.style.color = "red";
+    }
+  };
+});
