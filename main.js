@@ -37,7 +37,7 @@ const sendMail = async (mail) => {
   let message;
   loader.style.display = "block";
   try {
-    const res = await fetch("http://localhost:5000/email", options);
+    const res = await fetch("/email", options);
     const contact = await res.json();
     confirmation.style.background = "#04c986";
     message = "Your message was sent successfully.";
@@ -81,24 +81,24 @@ document.addEventListener("DOMContentLoaded", function () {
     contact.style.color = "#fff";
 
     if (scrollStart < aboutOffset.top) {
-      home.style.color = "red";
+      home.style.color = "var(--color-red)";
     } else if (
       scrollStart >= aboutOffset.top &&
       scrollStart < skillsOffset.top
     ) {
-      about.style.color = "red";
+      about.style.color = "var(--color-red)";
     } else if (
       scrollStart >= skillsOffset.top &&
       scrollStart < projectsOffset.top
     ) {
-      skills.style.color = "red";
+      skills.style.color = "var(--color-red)";
     } else if (
       scrollStart >= projectsOffset.top &&
       scrollStart < contactOffset.top
     ) {
-      projects.style.color = "red";
+      projects.style.color = "var(--color-red)";
     } else {
-      contact.style.color = "red";
+      contact.style.color = "var(--color-red)";
     }
   };
 });
